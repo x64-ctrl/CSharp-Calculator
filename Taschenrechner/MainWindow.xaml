@@ -1,0 +1,39 @@
+﻿<Window x:Class="Taschenrechner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Taschenrechner" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="4" Grid.Column="0" Command="{Binding ButtonCommand}" CommandParameter="0" Margin="5" FontWeight="Bold" FontSize="18" Background="#848484">0</Button>
+        <Button Grid.Row="1" Grid.Column="2" Command="{Binding ButtonCommand}" CommandParameter="9" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">9</Button>
+        <Button Grid.Row="1" Grid.Column="1" Command="{Binding ButtonCommand}" CommandParameter="8" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">8</Button>
+        <Button Grid.Row="1" Grid.Column="0" Command="{Binding ButtonCommand}" CommandParameter="7" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">7</Button>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding ButtonCommand}" CommandParameter="6" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">6</Button>
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding ButtonCommand}" CommandParameter="5" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">5</Button>
+        <Button Grid.Row="2" Grid.Column="0" Command="{Binding ButtonCommand}" CommandParameter="4" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">4</Button>
+        <Button Grid.Row="3" Grid.Column="2" Command="{Binding ButtonCommand}" CommandParameter="3" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">3</Button>
+        <Button Grid.Row="3" Grid.Column="1" Command="{Binding ButtonCommand}" CommandParameter="2" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">2</Button>
+        <Button Grid.Row="3" Grid.Column="0" Command="{Binding ButtonCommand}" CommandParameter="1" Margin="7" FontWeight="Bold" FontSize="18" Background="#848484">1</Button>
+        <Button Grid.Row="4" Grid.Column="1" Command="{Binding ButtonCommand}" CommandParameter="," Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">,</Button>
+        <Button Grid.Row="4" Grid.Column="2" Command="{Binding ButtonCommand}" CommandParameter="=" Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">=</Button>
+        <Button Grid.Row="0" Grid.Column="0" Command="{Binding ButtonCommand}" CommandParameter="AC" Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">AC</Button>
+        <Button Grid.Row="4" Grid.Column="4" Command="{Binding ButtonCommand}" CommandParameter="/" Margin="7" FontWeight="Bold" FontSize="18" Background="#FF006DFF">/</Button>
+        <Button Grid.Row="3" Grid.Column="4" Command="{Binding ButtonCommand}" CommandParameter="/" Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">+</Button>
+        <Button Grid.Row="2" Grid.Column="4" Command="{Binding ButtonCommand}" CommandParameter="/" Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">-</Button>
+        <Button Grid.Row="1" Grid.Column="4" Command="{Binding ButtonCommand}" CommandParameter="/" Margin="7" FontWeight="Bold" FontSize="23" Background="#FF006DFF">*</Button>
+        <TextBox Grid.Column="1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding Ergebnis}" VerticalAlignment="Center" Width="374" Height="50" TextAlignment="Right" Grid.ColumnSpan="3" Margin="0,0,10,0"/>
+    </Grid>
+</Window>
