@@ -3,31 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Taschenrechner with C# and xaml" Height="350" Width="525">
     <Window.InputBindings>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="1" Key="1"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="1" Key="NumPad1"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="2" Key="2"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="2" Key="NumPad2"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="3" Key="3"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="3" Key="NumPad3"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="4" Key="4"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="4" Key="NumPad4"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="5" Key="5"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="5" Key="NumPad5"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="6" Key="6"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="6" Key="NumPad6"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="7" Key="7"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="7" Key="NumPad7"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="8" Key="8"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="8" Key="NumPad8"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="9" Key="9"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="9" Key="NumPad9"/>
-        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="0" Key="0"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="0" Key="NumPad0"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="+" Key="OemPlus"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="-" Key="OemMinus"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="=" Key="Enter"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="/" Key="Divide"/>
         <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="DEL" Key="Back"/>
+        <KeyBinding Command="{Binding ButtonCommand}" CommandParameter="AC" Key="Escape"/>
 
     </Window.InputBindings>
     <Grid Background="Black">
