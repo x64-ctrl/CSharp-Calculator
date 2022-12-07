@@ -15,17 +15,18 @@ namespace Taschenrechner
         #region Fields
 
         private string _input;
+        private int _lastOperand;
+        private string _lastOperator;
 
-        public ICommand OnPropertyChanged { get; set; }
+        public ICommand TaschenrechnerInput { get; set; }
 
-        // send information from numbers to frontend when buttons pressed
         public string Input
         {
             get { return _input; }
             set
             {
                 _input = value;
-                OnPropertyChanged();
+                OnPropertyChanged(_input);
             }
         }
 
@@ -64,76 +65,110 @@ namespace Taschenrechner
 
         private void OnButtonCommand(string parameter)
         {
-            switch (parameter + _input)
+            string tmp = Input;
+            switch (parameter)
             {
+                
                 case "1":
-                    MessageBox.Show("\t1");  
-                    break;
-
                 case "2":
-                    MessageBox.Show("\t2");
-                    break;
-
                 case "3":
-                    MessageBox.Show("\t3"); 
-                    break;
-
                 case "4":
-                    MessageBox.Show("\t4");
-                    break;
-
                 case "5":
-                    MessageBox.Show("\t5");
-                    break;
-            
                 case "6":
-                    MessageBox.Show("\t6");
-                    break;
-            
                 case "7":
-                    MessageBox.Show("\t7");
+                case "8":
+                case "9":
+                case "0":
+                    
+                    tmp = tmp + parameter;
+                    if (int.TryParse(tmp, out int result))
+                    {
+                        Input = tmp;
+                        Ergebnis = result;
+                    }
+                    
                     break;
 
-                case "8": 
-                    MessageBox.Show("\t8");
-                    break;
-            
-                case "9":
-                    MessageBox.Show("\t9");
-                    break;
-            
-                case "0":
-                    MessageBox.Show("\t0");
-                    break;
 
 
                 // Operatoren
                 case "+":
-                    MessageBox.Show("\t+");
-                    break;
-
                 case "-":
-                    MessageBox.Show("\t-");
-                    break;
                 case "*":
-                    MessageBox.Show("\t*");
-                    break;
                 case "/":
-                    MessageBox.Show("\t/");
+                    
+                    _lastOperator = parameter;
+                    _lastOperand = Ergebnis;
+                    Input = "";
                     break;
+
+
+
+                case "AC":
+                    Input = "";
+                    Ergebnis = 0;
+                    break;
+
                 case "=":
-                    MessageBox.Show("\t=");
-                    break;
-                case "C":
-                    MessageBox.Show("\tC");
-                    break;
-
-
-                    // build functions for operators
-
-
-
+                    switch (_lastOperator)
+                    {
+                        case "+":
+                            Ergebnis = _lastOperand + Ergebnis;
+                            break;
+                        case "-":
+                            Ergebnis = _lastOperand - Ergebnis;
+                            break;
+                        case "*":
+                            Ergebnis = _lastOperand * Ergebnis;
+                            break;
+                        case "/":
+                            if (_lastOperand != 0) ;
+                            return;
+                            Ergebnis = _lastOperand / Ergebnis;
+                            break;
+                        
+                    }
                     #endregion
+                    break;
+
+               // DEL KEY
+                case "DEL":
+                    if (tmp.Length > 0)
+                    {
+                        tmp = tmp.Substring(0, tmp.Length - 1);
+                        Input = tmp;
+                        if (int.TryParse(tmp, out int result2))
+                        {
+                            Ergebnis = result2;
+                        }
+                    }
+
+                    break;
+
+                   
+                    
+
+
+
+
+                /* case "NumPad1":
+                 case "NumPad2":
+                 case "NumPad3":
+                 case "NumPad4":
+                 case "NumPad5":
+                 case "NumPad6":
+                 case "NumPad7":
+                 case "NumPad8":
+                 case "NumPad9":
+                 case "NumPad0":
+                     tmp = tmp + parameter.Substring(6);
+                     if (int.TryParse(tmp, out int result2))
+                     {
+                         Input = tmp;
+                         Ergebnis = result;
+                     }
+                     break; */
+
             }
         }
     }
