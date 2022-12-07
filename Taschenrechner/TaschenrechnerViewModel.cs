@@ -96,7 +96,7 @@ namespace Taschenrechner
                 case "-":
                 case "*":
                 case "/":
-                    
+
                     _lastOperator = parameter;
                     _lastOperand = Ergebnis;
                     Input = "";
@@ -141,6 +141,11 @@ namespace Taschenrechner
                         {
                             Ergebnis = result2;
                         }
+                    }
+                    else 
+                    {
+                        Input = "";
+                        Ergebnis = 0;
                     }
 
                     break;
