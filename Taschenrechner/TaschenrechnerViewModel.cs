@@ -122,8 +122,8 @@ namespace Taschenrechner
                             Ergebnis = _lastOperand * Ergebnis;
                             break;
                         case "/":
-                            if (_lastOperand != 0) ;
-                            return;
+                            if (Ergebnis == 0)
+                                return;
                             Ergebnis = _lastOperand / Ergebnis;
                             break;
                         
@@ -133,7 +133,7 @@ namespace Taschenrechner
 
                // DEL KEY
                 case "DEL":
-                    if (tmp.Length > 0)
+                    if (tmp.Length > 1)
                     {
                         tmp = tmp.Substring(0, tmp.Length - 1);
                         Input = tmp;
@@ -144,31 +144,6 @@ namespace Taschenrechner
                     }
 
                     break;
-
-                   
-                    
-
-
-
-
-                /* case "NumPad1":
-                 case "NumPad2":
-                 case "NumPad3":
-                 case "NumPad4":
-                 case "NumPad5":
-                 case "NumPad6":
-                 case "NumPad7":
-                 case "NumPad8":
-                 case "NumPad9":
-                 case "NumPad0":
-                     tmp = tmp + parameter.Substring(6);
-                     if (int.TryParse(tmp, out int result2))
-                     {
-                         Input = tmp;
-                         Ergebnis = result;
-                     }
-                     break; */
-
             }
         }
     }
